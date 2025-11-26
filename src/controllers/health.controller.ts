@@ -3,7 +3,7 @@ import sequelize from '../config/database';
 
 export const getHealth = async (_req: Request, res: Response): Promise<void> => {
   try {
-    const [rows] = await sequelize.query("show tables;");
+    const [rows] = await sequelize.query("Select * from users");
 
     res.status(200).json({
       status: 'ok',
