@@ -81,15 +81,15 @@ export const createApproval = async (
           entityId: changeRequestWithDetails?.entityId,
           reason: changeRequestWithDetails?.reason,
           status: changeRequestWithDetails?.status,
-          requestedBy: changeRequestWithDetails?.requester
-            ? {
-                id: changeRequestWithDetails.requester.id,
-                name: changeRequestWithDetails.requester.name,
-                email: changeRequestWithDetails.requester.email,
-              }
-            : null,
-          createdAt: changeRequestWithDetails?.createdAt,
-          updatedAt: changeRequestWithDetails?.updatedAt,
+          // requestedBy: changeRequestWithDetails?.requester
+          //   ? {
+          //       id: changeRequestWithDetails.requester.id,
+          //       name: changeRequestWithDetails.requester.name,
+          //       email: changeRequestWithDetails.requester.email,
+          //     }
+          //   : null,
+          // createdAt: changeRequestWithDetails?.createdAt,
+          // updatedAt: changeRequestWithDetails?.updatedAt,
         },
       },
     });
@@ -174,7 +174,7 @@ export const respondToApproval = async (
     // Update change request
     changeRequest.status = approve ? ChangeRequestStatus.APPROVED : ChangeRequestStatus.REJECTED;
     changeRequest.approverId = req.user.userId;
-    changeRequest.updatedAt = new Date(); // Response timestamp
+    // changeRequest.updatedAt = new Date(); // Response timestamp
     await changeRequest.save();
 
     // Fetch with approver information
@@ -203,20 +203,20 @@ export const respondToApproval = async (
           entityId: updatedChangeRequest?.entityId,
           reason: updatedChangeRequest?.reason,
           status: updatedChangeRequest?.status,
-          requestedBy: updatedChangeRequest?.requester
-            ? {
-                id: updatedChangeRequest.requester.id,
-                name: updatedChangeRequest.requester.name,
-                email: updatedChangeRequest.requester.email,
-              }
-            : null,
-          approver: updatedChangeRequest?.approver
-            ? {
-                id: updatedChangeRequest.approver.id,
-                name: updatedChangeRequest.approver.name,
-                email: updatedChangeRequest.approver.email,
-              }
-            : null,
+          // requestedBy: updatedChangeRequest?.requester
+          //   ? {
+          //       id: updatedChangeRequest.requester.id,
+          //       name: updatedChangeRequest.requester.name,
+          //       email: updatedChangeRequest.requester.email,
+          //     }
+          //   : null,
+          // approver: updatedChangeRequest?.approver
+          //   ? {
+          //       id: updatedChangeRequest.approver.id,
+          //       name: updatedChangeRequest.approver.name,
+          //       email: updatedChangeRequest.approver.email,
+          //     }
+          //   : null,
           createdAt: updatedChangeRequest?.createdAt,
           updatedAt: updatedChangeRequest?.updatedAt, // Response timestamp
         },

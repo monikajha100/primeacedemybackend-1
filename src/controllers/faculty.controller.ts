@@ -86,7 +86,7 @@ export const createFaculty = async (req: AuthRequest & { body: CreateFacultyBody
           userId: profileWithUser?.userId,
           expertise: profileWithUser?.expertise,
           availability: profileWithUser?.availability,
-          user: profileWithUser?.user,
+          // user: profileWithUser?.user,
           createdAt: profileWithUser?.createdAt,
           updatedAt: profileWithUser?.updatedAt,
         },

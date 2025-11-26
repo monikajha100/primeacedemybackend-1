@@ -23,7 +23,7 @@ export const getStudentCurrentBatch = async (req: AuthRequest & { params: { stud
     }
 
     const student = await db.User.findByPk(studentId, {
-      where: { role: UserRole.STUDENT },
+      // where= { role: UserRole.STUDENT },
       include: [
         {
           model: db.Enrollment,
@@ -116,7 +116,7 @@ export const getStudentAttendance = async (
     const { from, to } = req.query;
 
     const student = await db.User.findByPk(studentId, {
-      where: { role: UserRole.STUDENT },
+      // where: { role: UserRole.STUDENT },
       attributes: ['id', 'name', 'email'],
     });
 
